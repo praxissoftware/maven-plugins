@@ -101,7 +101,7 @@ public class GenerateFeaturesMojo extends AbstractMojo {
     final Map<String, Object> map = Maps.newHashMap();
     map.put("groupId", artifact.getGroupId());
     map.put("artifactId", artifact.getArtifactId());
-    map.put("version", artifact.getVersion());
+    map.put("version", artifact.isSnapshot() ? artifact.getBaseVersion() : artifact.getVersion());
     map.put("hasClassifier", artifact.getClassifier() != null);
     map.put("classifier", artifact.getClassifier());
     map.put("hasType", artifact.getType() != null);
